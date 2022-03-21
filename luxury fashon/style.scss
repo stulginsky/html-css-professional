@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+$red300: #F16D7F;
+$red200: #FCBAC3;
+$red100: #F1E4E6;
+$red100-hover: #F1CFD5;
+
+$black400: #222222;
+$black300: #5D5D5D;
+$black200: #9F9F9F;
+$black100: #F8F8F8;
+
+$white: #ffffff;
+
+$shader-light: #f8f8f8ad;
+$shader-dark: #211616b3;
+$shader-dark-hover: rgba(33, 22, 22, 0.65);
+
+%paragraph {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 145%;
+    color: $black300;
+}
+
+%caption {
+    @extend %paragraph;
+    font-size: 16px;
+    text-transform: uppercase;
+
+}
+
+
+h1 {
+    font-size: 32px;
+    line-height: 130%;
+    color: $black400;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 130%;
+    color: $black400;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 130%;
+    color: $black400;
+}
+
+h4 {
+    font-size: 14px;
+    line-height: 130%;
+    color: $black400;
+}
+
+p {
+    @extend %paragraph;
+}
+
+%button {
+  border: 1px solid $red300;
+  background-color: white;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%;
+  color: $red300;
+  padding: 16px 40px;
+  cursor: pointer;
+}
+
+.container {
+
+    max-width: 1200px;
+    padding: 0 30px 0 30px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+.fixed-top-menu {
+    width: 100%;
+    height: 75px;
+    position: sticky;
+    top: 0;
+
+    z-index: 10;
+    background-color: $black400;
+
+
+    .top-menu {
+        width: inherit;
+        height: inherit;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .btn-top-menu {
+        display: flex;
+        width: 38px;
+        height: 38px;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .btn-top-menu path {
+        fill: $black100;
+    }
+
+    .btn-top-menu:hover .top-menu-btn {
+        fill: $red200;
+    }
+
+    .logo {
+        height: 38px;
+
+        .red300 {
+            fill: $red300;
+        }
+
+        .red200 {
+            fill: $red200;
+        }
+
+        .red100 {
+            fill: $red100;
+        }
+
+    }
+
+    .top-menu-left-btn {
+        display: flex;
+        width: 110px;
+        justify-content: space-between;
+    }
+
+    .top-menu-right-btn {
+        display: flex;
+        justify-content: space-between;
+        width: 170px;
+
+        .burger {
+            cursor: pointer;
+        }
+
+        .basket {
+            width: 42px;
+            justify-content: flex-start;
+            position: relative;
+
+            .counter {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $red300;
+                border-radius: 16px;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                color: $white;
+            }
+        }
+    }
+
+    .counter-numeric {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+        color: $white;
+
+    }
+
+    .burger {
+        position: relative;
+
+        &:hover .drop-down-menu {
+            display: block;
+
+        }
+    }
+}
+
+// Drop down menu
+
+.drop-down-menu {
+
+    width: 1000px;
+    height: 100vh;
+    background-color: $white;
+    position: absolute;
+    left: -32px;
+    top: 56px;
+    padding: 32px;
+    box-shadow: -4px 0px 4px #00000033;
+    z-index: 11;
+    overflow: auto;
+    display: none;
+
+    transition-property: background-color;
+    transition: 5s;
+    transition-timing-function: ease-out;
+
+
+
+
+    .menu-title {
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0 0 24px 0;
+        text-decoration: none;
+        cursor: default;
+    }
+
+    .category {
+        margin: 0 0 20px 0;
+    }
+
+    .category-list-title {
+        @extend %paragraph;
+        text-transform: uppercase;
+        color: $red300;
+        text-decoration: none;
+        margin: 0 0 12px 0;
+    }
+
+    .category-list-item {
+        @extend %paragraph;
+        margin: 0 0 12px 0;
+        padding: 0 0 0 10px;
+        text-decoration: none;
+    }
+
+    .category-list-title:hover {
+        text-decoration: underline;
+    }
+
+    .category-list-item:hover {
+        text-decoration: underline;
+    }
+
+    .cross-in-drop-down {
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .cross-in-drop-down path {
+        fill: $black200;
+    }
+
+    .cross-in-drop-down:hover path {
+        fill: $black300;
+    }
+
+}
+
+// Top banner
+
+.top-banner {
+    width: 100%;
+    height: 764px;
+    margin: 0 0 64px 0;
+    background-color: $red100;
+}
+
+.rectangle-12x98-top-banner {
+    width: 12px;
+    // height: 100%;
+    min-height: 98px;
+    background-color: $red300;
+}
+
+.top-banner-title {
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 58px;
+    color: $black400;
+    display: block;
+}
+
+.top-banner-caption {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: $black400;
+    display: block;
+
+    .font-color-accent {
+        color: $red300;
+    }
+}
+
+.top-banner-brand-name {
+    display: flex;
+
+    flex-grow: 2;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+
+.banner {
+    display: flex;
+}
+
+.top-banner-title-caption {
+    margin-left: 16px;
+}
+
+// Offer
+
+.offer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 96px;
+
+    .offer-three-first {
+        display: flex;
+
+    }
+
+    .offer-item {
+        width: 100%;
+        max-width: 360px;
+        position: relative;
+        margin: 0 30px 30px 0;
+    }
+
+    .offer-three-first :last-child {
+        margin-right: 0;
+    }
+
+    .img-offer {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .offer-item :hover .shader {
+        background-color: $shader-dark-hover;
+    }
+
+    .offer-item-wide {
+        width: 100%;
+        display: flex;
+        position: relative;
+    }
+
+    .img-offer-wide {
+        width: 100%;
+        max-width: 1140px;
+    }
+
+    .offer-item-wide:hover .shader {
+        background-color: $shader-dark-hover;
+    }
+
+    .shader {
+        width: 100%;
+        height: 99%;
+        background-color: $shader-dark;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transition-property: background-color;
+        transition: .3s;
+        transition-timing-function: ease-out;
+    }
+
+    .offer-item-wide .shader {
+        width: 100%;
+        height: 100%;
+    }
+
+    .offer-caption {
+        @extend %caption;
+        color: $white;
+    }
+
+    .offer-h2 {
+        text-transform: uppercase;
+        color: $red300;
+    }
+}
+
+// Featured items
+
+.featured-items {
+    height: fit-content;
+    margin-bottom: 12px;
+}
+
+.featured-items-headline {
+    text-align: center;
+}
+
+.featured-items-caption {
+    text-align: center;
+    margin: 0 0 44px 0;
+    color: $black200;
+}
+
+.featured-items-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.featured-item {
+    text-decoration: none;
+    width: 100%;
+    max-width: 360px;
+    height: 582px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: $red100;
+    transition-property: background-color;
+    transition: .3s;
+    transition-timing-function: ease-out;
+
+    &:hover {
+        background-color: $red100-hover;
+    }
+}
+
+.featured-item-text {
+    padding: 20px 16px 0 16px;
+    flex-grow: 1;
+    background-color: $black100;
+}
+
+.featured-Item-description {
+    font-weight: 300;
+}
+
+.featured-Item-title,
+.featured-Item-description {
+    margin-bottom: 12px;
+}
+
+.price {
+    @extend %caption;
+    color: $red300;
+}
+
+.btn-browse-all-product-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.browse-all-product {
+  @extend %button;
+  
+  &:hover {
+  background-color: $red300;
+  color: white;
+}
+  
+}

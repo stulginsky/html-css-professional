@@ -27,6 +27,7 @@ $red100-hover: #F1CFD5;
 $black400: #222222;
 $black300: #5D5D5D;
 $black200: #9F9F9F;
+$black150: #E1E1E1;
 $black100: #F8F8F8;
 
 $white: #ffffff;
@@ -36,7 +37,7 @@ $shader-dark: #211616b3;
 $shader-dark-hover: rgba(33, 22, 22, 0.65);
 
 %paragraph {
-    font-weight: 400;
+    font-weight: 300;
     font-size: 14px;
     line-height: 145%;
     color: $black300;
@@ -82,9 +83,36 @@ h1,
 h2,
 h3,
 h4,
-p {
+p,
+span {
     cursor: default;
 }
+
+
+h1::selection {
+    background: transparent;
+}
+
+h2::selection {
+    background: transparent;
+}
+
+h3::selection {
+    background: transparent;
+}
+
+h4::selection {
+    background: transparent;
+}
+
+p::selection {
+    background: transparent;
+}
+
+span::selection {
+    background: transparent;
+}
+
 
 %button {
     border: 1px solid $red300;
@@ -97,9 +125,6 @@ p {
     cursor: pointer;
 }
 
-
-
-
 .container {
 
     max-width: 1200px;
@@ -111,9 +136,8 @@ p {
 .fixed-top-menu {
     width: 100%;
     height: 75px;
-    position: sticky;
+    position: fixed;
     top: 0;
-
     z-index: 10;
     background-color: $black400;
 
@@ -126,25 +150,15 @@ p {
         align-items: center;
     }
 
-
-    .btn-top-menu {
-        display: flex;
-        width: 38px;
-        height: 38px;
-        justify-content: center;
-        align-items: flex-end;
-    }
-
-    .btn-top-menu path {
-        fill: $black100;
-    }
-
-    .btn-top-menu:hover .top-menu-btn {
-        fill: $red200;
-    }
-
     .logo {
-        height: 38px;
+        display: flex;
+        width: 45px;
+        height: 43px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
 
         .red300 {
             fill: $red300;
@@ -157,23 +171,66 @@ p {
         .red100 {
             fill: $red100;
         }
-
     }
 
-    .top-menu-left-btn {
+    .btn-top-menu {
         display: flex;
-        width: 110px;
-        justify-content: space-between;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: $black400;
+        cursor: pointer;
+        margin: 0 32px 0 0;
     }
+
+    .btn-top-menu path {
+        fill: $black100;
+    }
+
+    .btn-top-menu:hover .top-menu-btn {
+        fill: $red200;
+    }
+
+    //Form search
+
+    .loupe {
+        margin: 0 0 0 32px;
+    }
+
+    .search-wrapper {
+        width: 100%;
+        display: flex;
+    }
+
+    .search_input {
+        width: 100%;
+        margin: 0 24px 0 16px;
+        padding: 0 20px 0 20px;
+        font-weight: 400;
+        font-size: 16px;
+        background-color: #E1E1E1;
+        border: none;
+        border-radius: 28px 28px 28px 28px;
+
+
+    }
+
+
+    //
 
     .top-menu-right-btn {
         display: flex;
         justify-content: space-between;
-        width: 170px;
 
-        .burger {
-            cursor: pointer;
+        & :last-child {
+            margin-right: 0;
         }
+
+
 
         .basket {
             width: 42px;
@@ -196,6 +253,8 @@ p {
         }
     }
 
+
+
     .counter-numeric {
         font-weight: 700;
         font-size: 12px;
@@ -206,36 +265,56 @@ p {
 
     .burger {
         position: relative;
-
-        &:hover .drop-down-menu {
-            display: block;
-
-        }
+        cursor: pointer;
+        // background-color: #9F9F9F;
     }
+
+    .burger::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(241, 109, 127, 0.001);
+    }
+
+
 }
+
 
 // Drop down menu
 
-.drop-down-menu {
+.burger path:hover {
+    fill: $red200;
+}
+
+.burger path:focus {
+    fill: $red200;
+}
+
+.dropdown-burger {
+    position: relative;
+}
+
+.dropdown-content {
 
     width: 1000px;
     height: 100vh;
     background-color: $white;
     position: absolute;
     left: -32px;
-    top: 56px;
+    top: 58px;
     padding: 32px;
-    box-shadow: -4px 0px 4px #00000033;
+    box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.035);
     z-index: 11;
     overflow: auto;
     display: none;
 
-    transition-property: background-color;
-    transition: 5s;
-    transition-timing-function: ease-out;
-
-
-
+    // transition-property: background-color;
+    // transition: 5s;
+    // transition-timing-function: ease-out;
 
     .menu-title {
         text-transform: uppercase;
@@ -251,6 +330,7 @@ p {
 
     .category-list-title {
         @extend %paragraph;
+        font-weight: 400;
         text-transform: uppercase;
         color: $red300;
         text-decoration: none;
@@ -259,6 +339,7 @@ p {
 
     .category-list-item {
         @extend %paragraph;
+        font-weight: 400;
         margin: 0 0 12px 0;
         padding: 0 0 0 10px;
         text-decoration: none;
@@ -292,12 +373,17 @@ p {
 
 }
 
+.show {
+    display: block;
+}
+
 // Top banner
 
 .top-banner {
     width: 100%;
     height: 764px;
-    margin: 0 0 64px 0;
+    margin: 75px 0 64px 0;
+
     background-color: $red100;
 }
 
@@ -330,7 +416,6 @@ p {
 
 .top-banner-brand-name {
     display: flex;
-
     flex-grow: 2;
     justify-content: center;
     align-items: center;
@@ -343,7 +428,18 @@ p {
 }
 
 .top-banner-title-caption {
-    margin-left: 16px;
+    position: relative;
+}
+
+.top-banner-title-caption::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 98px;
+    background-color: #f16d7f;
+    position: absolute;
+    top: 0;
+    left: -28px;
 }
 
 // Offer
@@ -363,6 +459,7 @@ p {
         max-width: 360px;
         position: relative;
         margin: 0 30px 30px 0;
+        cursor: pointer;
     }
 
     .offer-three-first :last-child {
@@ -374,7 +471,7 @@ p {
         max-width: 360px;
     }
 
-    .offer-item :hover .shader {
+    .offer-item:hover .shader {
         background-color: $shader-dark-hover;
     }
 
@@ -382,6 +479,7 @@ p {
         width: 100%;
         display: flex;
         position: relative;
+        cursor: pointer;
     }
 
     .img-offer-wide {
@@ -430,7 +528,7 @@ p {
 
 .featured-items {
     height: fit-content;
-    margin-bottom: 12px;
+    margin-bottom: 96px;
 }
 
 .featured-items-headline {
@@ -448,6 +546,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 24px;
 
 }
 
@@ -482,12 +581,13 @@ p {
 
 .featured-Item-title,
 .featured-Item-description {
-    margin-bottom: 12px;
+    margin: 0 0 12px 0;
 }
 
 .price {
     @extend %caption;
     color: $red300;
+    font-weight: 400;
 }
 
 
@@ -576,8 +676,227 @@ p {
 
     .add-to-cart {
         color: $black100;
-        letter-spacing: 0.08rem;
-        
+        letter-spacing: 0.05rem;
+    }
+}
 
+// Customer value
+
+.customer-value {
+    width: 100%;
+    height: 342px;
+    background-color: $black400;
+}
+
+.value-wrapper {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.value-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & path {
+        fill: $red300;
+    }
+}
+
+.value-title,
+.value-descriotion {
+    color: $black100;
+    text-align: center;
+}
+
+.value-item {
+    width: 100%;
+    max-width: 300px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// Subscribe
+
+.subscribe {
+    width: 100%;
+    min-height: 448px;
+    background-image: url(img/subscribe_back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+
+}
+
+.subscribe-shader:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $shader-light;
+
+}
+
+.subscribe-wrapper {
+    min-height: 448px;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.avatar-wrapper {
+    width: 100%;
+    max-width: 360px;
+    height: 216px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatar-speech {
+    width: 360px;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    color: $black400;
+
+    .avatar-speech-italic {
+        font-style: italic;
+    }
+}
+
+.send-mail-wrapper {
+    width: 365px;
+    height: 142px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subscribe-title,
+.subscribe-caption {
+    text-align: center;
+}
+
+.subscribe-caption {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.subscribe-form {
+    display: flex;
+    width: inherit;
+}
+
+.subscribe-email-input {
+    @extend %paragraph;
+    font-weight: 400;
+    background-color: $black150;
+    border: none;
+    border-radius: 28px 0 0 28px;
+    padding-left: 20px;
+    flex-grow: 1;
+}
+
+.subscribe-email-input:focus {
+    outline: none;
+    background-color: $white;
+    color: $black400;
+}
+
+
+
+.email-submit-btn {
+    @extend %paragraph;
+    font-weight: 400;
+    color: $black100;
+    background-color: $red300;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 0 28px 28px 0;
+    letter-spacing: 0.05rem;
+
+    &:hover {
+        background-color: $black400;
+    }
+
+    &:active {
+        background-color: $red300;
+    }
+}
+
+
+
+
+
+// Footer
+
+.copyright-social {
+    width: 100%;
+    height: 80px;
+    background-color: $black400;
+}
+
+.copyright-social-wrapper {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.copyright {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 145%;
+    color: $black100;
+    display: inline;
+}
+
+.social-icons-wrapper {
+    width: 148px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    background-color: $black100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+
+    & path {
+        fill: $black400;
+    }
+
+    &:hover path {
+        fill: $black100;
+    }
+
+    &:hover {
+        background-color: $red300;
     }
 }

@@ -182,7 +182,7 @@ span::selection {
         padding: 0;
         margin: 0;
         border: none;
-        background-color: $black400;
+        background-color: transparent;
         cursor: pointer;
         margin: 0 32px 0 0;
     }
@@ -193,6 +193,10 @@ span::selection {
 
     .btn-top-menu:hover .top-menu-btn {
         fill: $red200;
+    }
+
+    .btn-top-menu:active .top-menu-btn {
+        fill: $black100;
     }
 
     //Form search
@@ -219,8 +223,7 @@ span::selection {
 
     }
 
-
-    //
+    // Form search - END
 
     .top-menu-right-btn {
         display: flex;
@@ -266,7 +269,6 @@ span::selection {
     .burger {
         position: relative;
         cursor: pointer;
-        // background-color: #9F9F9F;
     }
 
     .burger::after {
@@ -277,7 +279,7 @@ span::selection {
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba(241, 109, 127, 0.001);
+        background-color: transparent);
     }
 
 
@@ -383,16 +385,18 @@ span::selection {
     width: 100%;
     height: 764px;
     margin: 75px 0 64px 0;
-
     background-color: $red100;
 }
 
-.rectangle-12x98-top-banner {
-    width: 12px;
-    // height: 100%;
-    min-height: 98px;
-    background-color: $red300;
+.banner {
+    height: inherit;
+    background-image: url(img/top-banner-img.png);
+    background-repeat: no-repeat;
+    background-position: 30px 0;
+    justify-content: flex-end;
+    align-items: center;
 }
+
 
 .top-banner-title {
     font-weight: 900;
@@ -414,13 +418,17 @@ span::selection {
     }
 }
 
-.top-banner-brand-name {
-    display: flex;
-    flex-grow: 2;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 20px;
+.top-banner-title-caption {
+    margin: 0 50px 20px 0;
 }
+
+// .top-banner-brand-name {
+//     display: flex;
+//     flex-grow: 2;
+//     justify-content: center;
+//     align-items: center;
+//     padding-bottom: 20px;
+// }
 
 
 .banner {

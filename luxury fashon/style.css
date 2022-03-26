@@ -193,7 +193,7 @@ span::selection {
   padding: 0;
   margin: 0;
   border: none;
-  background-color: #222222;
+  background-color: transparent;
   cursor: pointer;
   margin: 0 32px 0 0;
 }
@@ -204,6 +204,10 @@ span::selection {
 
 .fixed-top-menu .btn-top-menu:hover .top-menu-btn {
   fill: #FCBAC3;
+}
+
+.fixed-top-menu .btn-top-menu:active .top-menu-btn {
+  fill: #F8F8F8;
 }
 
 .fixed-top-menu .loupe {
@@ -388,10 +392,17 @@ span::selection {
   background-color: #F1E4E6;
 }
 
-.rectangle-12x98-top-banner {
-  width: 12px;
-  min-height: 98px;
-  background-color: #F16D7F;
+.banner {
+  height: inherit;
+  background-image: url(img/top-banner-img.png);
+  background-repeat: no-repeat;
+  background-position: 30px 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .top-banner-title {
@@ -414,20 +425,8 @@ span::selection {
   color: #F16D7F;
 }
 
-.top-banner-brand-name {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-bottom: 20px;
+.top-banner-title-caption {
+  margin: 0 50px 20px 0;
 }
 
 .banner {

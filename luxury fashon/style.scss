@@ -1246,14 +1246,28 @@ ul.breadcrumbs li a:active {
 }
 
 .women-collection {
+    min-width: 150px;
     font-weight: 300;
     font-size: 14px;
     line-height: 145%;
     color: $red300;
-    margin-bottom: 12px;
+    margin-bottom: 28px;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 64px;
+        height: 4px;
+        background-color: $red300;
+        position: absolute;
+        left: 40px;
+        top: 32px;
+    }
 }
 
 .moschino-cheap {
+    min-width: 254px;
     font-weight: 300;
     font-size: 18px;
     line-height: 145%;
@@ -1262,6 +1276,7 @@ ul.breadcrumbs li a:active {
 }
 
 .product-info-text {
+    min-width: 254px;
     text-align: center;
     max-width: 556px;
     margin-bottom: 32px;
@@ -1272,26 +1287,24 @@ ul.breadcrumbs li a:active {
     font-size: 24px;
     line-height: 145%;
     color: $red300;
-    margin-bottom: 64px;
+    margin-bottom: 130px;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 640px;
+        height: 1px;
+        background-color: $black150;
+        position: absolute;
+        left: -290px;
+        top: 100px;
+    }
 }
 
 .product-info {
     position: relative;
     min-height: 664px;
-}
-
-.horizontal-divider-red {
-    width: 64px;
-    height: 4px;
-    background-color: $red300;
-    margin-bottom: 12px;
-}
-
-.horizontal-divider-black {
-    width: 100%;
-    height: 1px;
-    background-color: $black150;
-    margin-bottom: 64px;
 }
 
 select {

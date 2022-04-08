@@ -1111,8 +1111,327 @@ ul.breadcrumbs li a:active {
     width: 100%;
     height: 132px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+}
+
+// input:focus {
+//     outline: none;
+// }
+
+// input:focus-visible {
+//     outline: 2px solid #F16D7F;
+// }
+
+.list {
+    width: fit-content;
+    height: 24px;
+    border: none;
+    position: relative;
+    z-index: 3;
+
+}
+
+.list-btn-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: inherit;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $black300;
+    background-color: transparent;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        width: inherit;
+        height: 24px;
+        position: absolute;
+        background-color: transparent;
+        z-index: 2;
+    }
+
+
+}
+
+
+.chevron {
+    margin: 2px 24px 0 12px;
+    fill: $black300;
+
+}
+
+
+.list-btn-title:hover {
+    color: $red300;
+}
+
+.list-btn-title:hover .chevron {
+    fill: currentColor;
+}
+
+
+.list-btn-title:active .chevron {
+    fill: currentColor;
+}
+
+#switch-size {
+    display: none;
+}
+
+#switch-size:checked~.list-wrp {
+    display: flex;
+}
+
+#switch-size:checked~.list-btn-title .chevron {
+    fill: $red300;
+}
+
+#switch-size:checked~.list-btn-title span {
+    color: $red300;
+}
+
+
+.list-wrp {
+    display: none;
+    flex-direction: column;
+    margin: 5px 0 0 0;
+    padding: 12px 12px 4px 12px;
+    box-sizing: border-box;
+    background-color: $white;
+    box-shadow: 6px 4px 35px #2116163b;
+}
+
+.list-item {
+    display: none;
+}
+
+.list-item:nth-child(1):checked~.list-item-title:nth-child(2)::before,
+.list-item:nth-child(3):checked~.list-item-title:nth-child(4)::before,
+.list-item:nth-child(5):checked~.list-item-title:nth-child(6)::before,
+.list-item:nth-child(7):checked~.list-item-title:nth-child(8)::before {
+    background-image: url(img/check.svg);
+    background-size: 84%;
+    background-position: 1px;
+    background-repeat: no-repeat;
+}
+
+.list-item-title {
+    display: block;
+    margin: 0 0 8px 0;
+    padding: 0 0 0 24px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    color: $black300;
+}
+
+.list-item-title::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid $black200;
+    position: absolute;
+    top: 1px;
+    left: 0;
+}
+
+#switch-trend {
+    display: none;
+}
+
+#switch-trend:checked~.list-wrp {
+    display: flex;
+}
+
+#switch-trend:checked~.list-btn-title .chevron {
+    fill: $red300;
+}
+
+#switch-trend:checked~.list-btn-title span {
+    color: $red300;
+}
+
+#switch-price {
+    display: none;
+}
+
+#switch-price:checked~.list-wrp {
+    display: flex;
+}
+
+#switch-price:checked~.list-btn-title .chevron {
+    fill: $red300;
+}
+
+#switch-price:checked~.list-btn-title span {
+    color: $red300;
+}
+
+
+// More filters
+
+
+#switch-more-filter {
+    display: none;
+}
+
+#switch-more-filter:checked~.more-filter-list-wrp {
+    display: block;
+}
+
+#switch-more-filter:checked~.more-filter-btn span {
+    color: $red300;
+}
+
+#switch-more-filter:checked~.more-filter-btn svg {
+    color: $red300;
+}
+
+.more-filter {
+    width: fit-content;
+    height: 24px;
+    background: $white;
+    position: relative;
+    z-index: 3;
+
+}
+
+.more-filter-btn {
+
+    width: 100%;
+    height: inherit;
+    background-color: transparent;
+    border: none;
+    color: $black300;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &::before {
+        content: "";
+        width: inherit;
+        height: 24px;
+        position: absolute;
+        background-color: transparent;
+        z-index: 2;
+    }
+}
+
+.more-filter-btn span {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    text-transform: uppercase;
+}
+
+.more-filter-btn svg {
+    margin: 0 0 0 12px;
+    fill: currentColor;
+}
+
+// .more-filter-btn:hover {
+//     color: $red300;
+// }
+
+.more-filter-list-wrp {
+    display: none;
+    width: 100%;
+    min-width: 200px;
+    position: absolute;
+    top: 24;
+    right: 0;
+    padding: 13px 16px 16px 16px;
+    box-sizing: border-box;
+    background: $white;
+    box-shadow: 6px 4px 35px #2116163b;
+}
+
+.more-filter-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.more-filter-list-item {
+    width: 100%;
+    margin: 0 0 18px 0;
+    padding: 11px;
+
+    font-size: 14px;
+    line-height: 100%;
+    border-bottom: 1px solid $black150;
+    position: relative;
+}
+
+.more-filter-list-item::before {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 37px;
+    background-color: $red300;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.more-filter-list-item a {
+    text-transform: uppercase;
+    color: $red300;
+    text-decoration: none;
+}
+
+.more-filter-list-item:hover::before {
+    background-color: $black300;
+}
+
+// .more-filter-list-item:hover a {
+//     color: $black400;
+// }
+
+.more-filter-list-item:active::before {
+    background-color: $red300;
+}
+
+.more-filter-list-item:active a {
+    color: $red300;
+}
+
+.more-filter-sublist {
+    margin: 24px 0 0 0;
+    padding: 0 0 0 8px;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.more-filter-sublist-item {
+    margin: 0 0 11px 0;
+    font-size: 14px;
+    line-height: 130%;
+}
+
+.more-filter-sublist-item:last-child {
+    margin: 0 0 24px 0;
+}
+
+.more-filter-sublist-item a {
+    color: $black300;
+    text-decoration: none;
+}
+
+.more-filter-sublist-item:hover a {
+    text-decoration: underline;
+    text-decoration-color: $black200;
 }
 
 
@@ -1283,9 +1602,12 @@ ul.breadcrumbs li a:active {
 }
 
 .product-info-price {
+    width: 100%;
+    min-width: 260px;
     font-weight: 300;
     font-size: 24px;
     line-height: 145%;
+    text-align: center;
     color: $red300;
     margin-bottom: 130px;
     position: relative;
@@ -1293,11 +1615,12 @@ ul.breadcrumbs li a:active {
     &::after {
         content: "";
         display: block;
-        width: 640px;
+        width: 100%;
+        // min-width: 260px;
         height: 1px;
         background-color: $black150;
         position: absolute;
-        left: -290px;
+        left: 0px;
         top: 100px;
     }
 }
@@ -1322,14 +1645,15 @@ option {
     font-weight: 400;
 }
 
-.filter {
+.options {
     display: flex;
     width: 420px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-bottom: 48px;
 }
 
 .btn-add-to-cart-product {
+    min-width: 168px;
     border: 1px solid $red300;
     background-color: initial;
     padding: 10px 24px;

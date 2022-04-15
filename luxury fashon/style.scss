@@ -1524,6 +1524,9 @@ ul.breadcrumbs li a:active {
 
 .pagination {
     display: flex;
+    width: 100%;
+    max-width: 405px;
+    min-width: 260px;
     height: 48px;
     border: 1px solid $black150;
     border-radius: 4px;

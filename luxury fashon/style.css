@@ -1617,6 +1617,9 @@ ul.breadcrumbs li a:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  max-width: 405px;
+  min-width: 260px;
   height: 48px;
   border: 1px solid #E1E1E1;
   border-radius: 4px;

@@ -114,13 +114,9 @@
 
   <main>
     <section class="page-title-breadcrumbs">
-      <div class="page-title-breadcrumbs-wrapper container">
+      <div class="page-title-breadcrumbs-wrapper shopping-cart-title container">
         <h2 class="page-title">SHOPPING CART</h2>
-        <ul class="breadcrumbs">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="catalog.html">Catalog</a></li>
-          <li><a class="breadcrumbs-active" href="#">SHOPPING CART</a></li>
-        </ul>
+
       </div>
 
     </section>
@@ -208,27 +204,34 @@
           </li>
         </ul>
         <div class="shopping-cart-buttons">
-          <button class="shopping-cart-button" type="button">CLEAR SHOPPING CART</button>
-          <a href="catalog.html" class="shopping-cart-button" >CONTINUE SHOPPING</a>
+          <button class="shopping-cart-button" type="button">Clear shopping cart</button>
+          <a href="catalog.html" class="shopping-cart-button">Continue shopping</a>
         </div>
       </div>
       <form action="#" class="form-shipping-adress">
-        <h3 class="shipping-adress-title">SHIPPING ADRESS</h3>
-        <input class="input-shipping-adress" type="text" placeholder="Country">
-        <input class="input-shipping-adress" type="text" placeholder="State">
-        <input class="input-shipping-adress" type="text" placeholder="Street, Building, Apartment">
-        <input class="input-shipping-adress" type="text" maxlength="6" placeholder="Zip code">
-        <div class="shipping-adress-total-submit">
-          <div class="input-total-submit-wrapper">
-                    <label class="label-subtotal" for="input-subtotal">Subtotal</label>
-                    <input class="input-subtotal" type="text" id="input-subtotal" value="$900" disabled>
-                  </div>
-                  <div class="input-total-submit-wrapper input-total-submit-wrapper-divider">
-                    <label class="label-total" for="input-total">Grand total</label>
-                    <input class="input-total" type="text" id="input-total" value="$900" disabled>
-                  </div>
-          <button class="shipping-adress-total-button" type="submit">PROCEED TO CHECKOUT</button>
+        <div class="form-shipping-adress-inputs">
+          <h3 class="shipping-adress-title">SHIPPING ADRESS</h3>
+          <input class="input-shipping-adress" type="text" placeholder="Bangladesh">
+          <input class="input-shipping-adress" type="text" placeholder="State">
+          <input class="input-shipping-adress" type="text" maxlength="6" placeholder="Postcode / Zip">
+          <button class="shopping-cart-form-button" type="submit">GET A QUOTE</button>
         </div>
+
+        <div class="form-shipping-total">
+          <div class="shipping-adress-total-submit">
+            <div class="input-total-submit-wrapper">
+              <label class="label-subtotal" for="input-subtotal">Subtotal</label>
+              <input class="input-subtotal" type="text" id="input-subtotal" value="$900" disabled>
+            </div>
+            <div class="input-total-submit-wrapper input-total-submit-wrapper-divider">
+              <label class="label-total" for="input-total">Grand total</label>
+              <input class="input-total" type="text" id="input-total" value="$900" disabled>
+            </div>
+            <button class="shipping-adress-total-button" type="submit">PROCEED TO CHECKOUT</button>
+          </div>
+        </div>
+
+
 
       </form>
     </section>
@@ -257,7 +260,7 @@
             <p class="subscribe-caption">FOR OUR NEWLETTER AND PROMOTION</p>
           </div>
           <form class="subscribe-form" action="#">
-            <input class="subscribe-email-input" type="email"  placeholder="Enter Your Email">
+            <input class="subscribe-email-input" type="email" placeholder="Enter Your Email">
 
             <button class="email-submit-btn" type="submit" value="Submit">Subscribe</button>
           </form>
@@ -312,7 +315,7 @@
 
   </footer>
 
-  
+
 </body>
 
 </html>
